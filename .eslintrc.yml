@@ -1,0 +1,222 @@
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: ./tsconfig.json
+  sourceType: module
+  ecmaVersion: 2019
+
+extends:
+  - prettier
+  - prettier/@typescript-eslint
+  - plugin:import/typescript
+
+plugins:
+  - '@typescript-eslint'
+  - import
+  - prettier
+  - react
+
+settings:
+  react:
+    pragma: jsx
+    version: '16.9'
+
+rules:
+  # Consistent formatting
+  prettier/prettier: error
+
+  # TypeScript-specific features and rules
+  '@typescript-eslint/array-type':
+    - error
+    - default: array-simple
+  '@typescript-eslint/await-thenable': error
+  '@typescript-eslint/camelcase':
+    - error
+    - properties: never
+  '@typescript-eslint/class-name-casing': error
+  '@typescript-eslint/consistent-type-assertions':
+    - error
+    - assertionStyle: as
+      objectLiteralTypeAssertions: never
+  '@typescript-eslint/consistent-type-definitions':
+    - error
+    - interface
+  '@typescript-eslint/explicit-function-return-type':
+    - error
+    - allowExpressions: true
+      allowTypedFunctionExpressions: true
+      allowHigherOrderFunctions: true
+  '@typescript-eslint/member-ordering':
+    - error
+    - default:
+        - constructor
+        - public-field
+        - public-method
+        - protected-field
+        - protected-method
+        - private-field
+        - private-method
+  '@typescript-eslint/no-explicit-any':
+    - error
+    - fixToUnknown: true
+  '@typescript-eslint/no-floating-promises': error
+  '@typescript-eslint/no-misused-promises':
+    - error
+    - checksVoidReturn: true
+      checksConditionals: true
+  '@typescript-eslint/no-this-alias': error
+  '@typescript-eslint/no-unnecessary-type-assertion': error
+  '@typescript-eslint/no-useless-constructor': error
+  '@typescript-eslint/no-var-requires': error
+  '@typescript-eslint/prefer-for-of': error
+  '@typescript-eslint/prefer-function-type': error
+  '@typescript-eslint/prefer-includes': error
+  '@typescript-eslint/prefer-readonly': error
+  '@typescript-eslint/prefer-regexp-exec': error
+  '@typescript-eslint/prefer-string-starts-ends-with': error
+  '@typescript-eslint/promise-function-async': error
+  '@typescript-eslint/require-array-sort-compare': error
+  '@typescript-eslint/unified-signatures': error
+
+  # Core ESLint
+  # Category: Possible Errors
+  no-constant-condition:
+    - error
+    - checkLoops: false
+  no-empty: error
+  no-empty-character-class: error
+  no-empty-function: error
+  no-ex-assign: error
+  no-sparse-arrays: error
+  no-template-curly-in-string: warn
+  no-unsafe-finally: error
+  require-atomic-updates: error
+
+  # Warn on usage (will be hard error in CI)
+  no-console: warn
+  no-debugger: warn
+
+  # Category: Best Practices
+  curly: error
+  eqeqeq: error
+  no-alert: error
+  no-caller: error
+  no-case-declarations: error
+  no-else-return: error
+  no-eval: error
+  no-extend-native: error
+  no-global-assign: error
+  no-implied-eval: error
+  no-lone-blocks: error
+  no-multi-str: error
+  no-new: error
+  no-new-func: error
+  no-new-wrappers: error
+  no-octal: error
+  no-octal-escape: error
+  no-param-reassign: error
+  no-proto: error
+  no-redeclare: error
+  no-return-await: error
+  no-self-assign: error
+  no-self-compare: error
+  no-sequences: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions:
+    - error
+    - allowTaggedTemplates: true
+  no-useless-call: error
+  no-useless-catch: error
+  no-useless-concat: error
+  no-useless-escape: error
+  no-useless-return: error
+  no-with: error
+  yoda:
+    - error
+    - never
+
+  # Category: Variables
+  no-delete-var: error
+  no-shadow: error
+
+  # Category: Stylistic Issues
+  arrow-body-style:
+    - error
+    - as-needed
+    - requireReturnForObjectLiteral: true
+  capitalized-comments:
+    - error
+    - always
+    - ignoreConsecutiveComments: true
+      ignoreInlineComments: true
+  func-names:
+    - error
+    - as-needed
+  func-style:
+    - error
+    - declaration
+    - allowArrowFunctions: true
+  id-length:
+    - error
+    - min: 3
+      properties: never
+  jsx-quotes:
+    - error
+    - prefer-double
+  no-duplicate-imports: error
+  no-lonely-if: error
+  no-useless-computed-key: error
+  no-useless-constructor: error
+  no-useless-rename: error
+  no-var: error
+  object-shorthand:
+    - error
+    - always
+  prefer-arrow-callback:
+    - error
+    - allowUnboundThis: true
+  prefer-const: error
+  prefer-destructuring:
+    - error
+    - array: false
+      object: true
+  prefer-numeric-literals: error
+  prefer-rest-params: error
+  one-var:
+    - error
+    - never
+  prefer-spread: error
+  quotes:
+    - error
+    - single
+    - allowTemplateLiterals: false
+      avoidEscape: true
+  sort-keys:
+    - error
+    - asc
+    - natural: true
+
+  # Plugin: Import
+  import/dynamic-import-chunkname: error
+  import/exports-last: error
+  import/first: error
+  import/no-anonymous-default-export:
+    - error
+    - allowCallExpression: true
+  import/no-commonjs: error
+  import/no-mutable-exports: error
+  import/no-useless-path-segments:
+    - error
+    - noUselessIndex: true
+  import/order:
+    - error
+    - newlines-between: always
+  import/unambiguous: error
+
+  # Plugin: React
+  react/button-has-type: error
+  react/destructuring-assignment:
+    - error
+    - always
+  react/no-unescaped-entities: error
+  react/react-in-jsx-scope: error

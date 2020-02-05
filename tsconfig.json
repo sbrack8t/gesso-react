@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "forceConsistentCasingInFileNames": true,
+
+    "jsx": "preserve",
+    "jsxFactory": "jsx",
+
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

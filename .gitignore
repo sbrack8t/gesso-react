@@ -1,0 +1,16 @@
+# Editors
+.idea
+.vscode
+
+# NPM
+node_modules
+
+# Build output
+/docs
+/storybook-static
+/public
+lib/*
+!lib/.npmignore
+
+# Output of npm pack
+libnaep-*.tgz
