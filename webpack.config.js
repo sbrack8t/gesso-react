@@ -1,52 +1,44 @@
 const path = require('path');
-const webpack = require(webpack);
+const ForkCheckerPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   context: __dirname,
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
+    filename: 'index.js',
     publicPath: '/',
   },
 
   devtool: 'source-map',
 
   resolve: {
-    modules: ['src', 'node_modules'],
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 
   devServer: {
     historyApiFallback: true,
   },
 
+  plugins: [
+    new ForkCheckerPlugin({
+      async: false,
+      formatter: 'codeframe',
+    }),
+  ],
+
   module: {
     rules: [
       {
         test: /\.ts(x?)$/,
-        exclude: /node_modules/,
         use: [
+          { loader: 'babel-loader' },
           {
             loader: 'ts-loader',
+            options: { transpileOnly: true },
           },
         ],
       },
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader',
-      },
     ],
-  },
-
-  // When importing a module whose path matches one of the following, just
-  // assume a corresponding global variable exists and use that instead.
-  // This is important because it allows us to avoid bundling all of our
-  // dependencies, which allows browsers to cache those libraries between builds.
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
   },
 };
