@@ -1,9 +1,9 @@
-import {Theme} from './index'
+import { Theme } from '.';
 
 export type Breakpoints = Theme['breakpoints'];
 export type Breakpoint = keyof Breakpoints;
 
-export type Typography = Theme['typography']; 
+export type Typography = Theme['typography'];
 
 export type FontSizes = Typography['fontSize'];
 export type FontSize = keyof FontSizes;

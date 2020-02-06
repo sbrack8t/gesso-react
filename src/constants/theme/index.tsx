@@ -1,3 +1,5 @@
+/* eslint-disable sort-keys */
+
 // Font Sizes
 const fontsz12 = '12px';
 const fontsz16 = '16px';
